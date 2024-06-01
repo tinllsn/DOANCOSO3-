@@ -1,0 +1,80 @@
+package com.example.doan.fragments.categories
+
+import android.os.Bundle
+import android.view.View
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import com.example.doan.data.Category
+import com.example.doan.util.Resource
+import com.example.doan.viewmodel.CategoryViewModel
+import com.example.doan.viewmodel.factory.BaseCategoryViewModelFactoryFactory
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.firestore.FirebaseFirestore
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import javax.inject.Inject
+
+// Được sử dụng để đánh dấu các thành phần Android mà bạn muốn Hilt inject dependencies vào
+@AndroidEntryPoint
+class AccessoryFragment: BaseCategoryFragment() {
+
+    @Inject
+    lateinit var firestore: FirebaseFirestore
+
+    val viewModel by viewModels<CategoryViewModel> {
+        BaseCategoryViewModelFactoryFactory(firestore, Category.Accessory)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+// lifecycleScope để chạy các coroutine
+        lifecycleScope.launchWhenStarted {
+            viewModel.offerProducts.collectLatest {
+                when (it) {
+                    is Resource.Loading -> {
+                        showOfferLoading()
+                    }
+                    is Resource.Success -> {
+                        offerAdapter.differ.submitList(it.data)
+                        hideOfferLoading()
+                    }
+                    is Resource.Error -> {
+                        Snackbar.make(requireView(), it.message.toString(), Snackbar.LENGTH_LONG)
+                            .show()
+                        hideOfferLoading()
+                    }
+                    else -> Unit
+                }
+            }
+        }
+
+//        lifecycleScope.launchWhenStarted {
+//            viewModel.bestProducts.collectLatest {
+//                when (it) {
+//                    is Resource.Loading -> {
+//                        showBestProductsLoading()
+//                    }
+//                    is Resource.Success -> {
+//                        bestProductsAdapter.differ.submitList(it.data)
+//                        hideBestProductsLoading()
+//                    }
+//                    is Resource.Error -> {
+//                        Snackbar.make(requireView(), it.message.toString(), Snackbar.LENGTH_LONG)
+//                            .show()
+//                        hideBestProductsLoading()
+//                    }
+//                    else -> Unit
+//                }
+//            }
+//        }
+    }
+
+//    override fun onBestProductsPagingRequest() {
+//
+//    }
+
+//    override fun onOfferPagingRequest() {
+//
+//    }
+}
