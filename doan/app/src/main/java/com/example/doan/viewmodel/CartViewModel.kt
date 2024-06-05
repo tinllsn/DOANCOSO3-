@@ -55,8 +55,6 @@ class CartViewModel @Inject constructor(
 
 //            realtime
 
-
-
             val docRef = firestore.collection("user")
                 .document(auth.uid!!)
                 .collection("cart")

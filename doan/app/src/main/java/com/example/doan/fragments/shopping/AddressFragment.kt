@@ -21,6 +21,7 @@ import kotlinx.coroutines.flow.collectLatest
 @AndroidEntryPoint
 class AddressFragment : Fragment() {
     private lateinit var binding: FragmentAddressBinding
+    private lateinit var addressTest: Address
     val viewModel by viewModels<AddressViewModel>()
 //    used in an Android Fragment to retrieve and use the arguments passed
 //    to the Fragment via Safe Args, a Gradle plugin that generates type-safe classes for accessing arguments in navigation.
@@ -95,12 +96,14 @@ class AddressFragment : Fragment() {
 
         val address = args.address
         if (address == null) {
+//             hide delete button
             binding.buttonDelelte.visibility = View.GONE
         } else {
             binding.apply {
                 edAddressTitle.setText(address.addressTitle)
                 edFullName.setText(address.fullName)
-                edState.setText(address.street)
+                edState.setText(address.state)
+                edStreet.setText(address.street)
                 edPhone.setText(address.phone)
                 edCity.setText(address.city)
                 edState.setText(address.state)
@@ -108,6 +111,8 @@ class AddressFragment : Fragment() {
         }
 
         binding.apply {
+
+//            val address = Address(addressTitle, fullName, street, phone, city, state)
             buttonSave.setOnClickListener {
                 val addressTitle = edAddressTitle.text.toString()
                 val fullName = edFullName.text.toString()
@@ -115,9 +120,17 @@ class AddressFragment : Fragment() {
                 val phone = edPhone.text.toString()
                 val city = edCity.text.toString()
                 val state = edState.text.toString()
-                val address = Address(addressTitle, fullName, street, phone, city, state)
+                viewModel.addAddress(Address(addressTitle, fullName, street, phone, city, state))
+            }
+            buttonDelelte.setOnClickListener {
+                val addressTitle = edAddressTitle.text.toString()
+                val fullName = edFullName.text.toString()
+                val street = edStreet.text.toString()
+                val phone = edPhone.text.toString()
+                val city = edCity.text.toString()
+                val state = edState.text.toString()
+                viewModel.deleterAddress(Address(addressTitle, fullName, street, phone, city, state))
 
-                viewModel.addAddress(address)
             }
         }
 

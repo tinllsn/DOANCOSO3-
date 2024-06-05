@@ -13,6 +13,7 @@ import com.example.doan.util.RegisterValidation
 import com.example.doan.util.Resource
 import com.example.doan.util.validateEmail
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.StorageReference
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,8 +22,10 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import java.io.ByteArrayOutputStream
+import java.util.HashMap
 import java.util.UUID
 import javax.inject.Inject
+
 
 @HiltViewModel
 class UserAccountViewModel @Inject constructor(
@@ -80,9 +83,27 @@ class UserAccountViewModel @Inject constructor(
 
         if (imageUri == null) {
             saveUserInformation(user, true)
+
         } else {
             saveUserInformationWithNewImage(user, imageUri)
         }
+
+        //        realtime
+        val updates = hashMapOf<String, Any>(
+            "firstName" to user.firstName,
+            "lastName" to user.lastName
+
+        )
+        var dbRef = FirebaseDatabase.getInstance().getReference("user").child(auth.uid!!)
+        dbRef.updateChildren(updates).addOnSuccessListener {
+            Log.wtf("test","update profile")
+        }.addOnFailureListener {
+            Log.wtf("test","update profile not success")
+
+        }
+
+
+
 
     }
 
@@ -114,6 +135,7 @@ class UserAccountViewModel @Inject constructor(
             val documentRef = firestore.collection("user").document(auth.uid!!)
             if (shouldRetrievedOldImage) {
                 val currentUser = transaction.get(documentRef).toObject(User::class.java)
+//                Hàm này được sử dụng để tạo một bản sao của đối tượng data class với một số thuộc tính được thay đổi.
                 val newUser = user.copy(imagePath = currentUser?.imagePath ?: "")
                 transaction.set(documentRef, newUser)
             } else {
@@ -128,6 +150,8 @@ class UserAccountViewModel @Inject constructor(
                 _updateInfo.emit(Resource.Error(it.message.toString()))
             }
         }
+
+
     }
 
 }

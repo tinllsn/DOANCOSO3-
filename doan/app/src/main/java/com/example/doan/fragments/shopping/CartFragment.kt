@@ -72,7 +72,7 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
         }
 
 
-
+// xoa về 0
         lifecycleScope.launchWhenStarted {
             viewModel.deleteDialog.collectLatest {
                 val alertDialog = AlertDialog.Builder(requireContext()).apply {

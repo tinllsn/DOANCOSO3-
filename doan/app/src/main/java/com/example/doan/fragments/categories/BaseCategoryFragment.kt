@@ -21,6 +21,7 @@ open class BaseCategoryFragment: Fragment(R.layout.fragment_base_category) {
     protected val offerAdapter: BestProductsAdapter by lazy { BestProductsAdapter() }
     protected val  bestProductsAdapter: BestProductsAdapter by lazy { BestProductsAdapter() }
 
+//    Phương thức này được sử dụng để inflate layout của fragment. Nó trả về View của layout mà fragment sử dụng.
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

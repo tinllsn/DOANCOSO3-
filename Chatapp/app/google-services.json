@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "592502962377",
+    "firebase_url": "https://doan-fbedd-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "doan-fbedd",
+    "storage_bucket": "doan-fbedd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592502962377:android:b6a2537fa8fc232cfcf518",
+        "android_client_info": {
+          "package_name": "com.example.chatapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDM564xiYV2yMbl1F0gvwncI8k3DZfZTP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592502962377:android:132195867e1d0327fcf518",
+        "android_client_info": {
+          "package_name": "com.example.doan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDM564xiYV2yMbl1F0gvwncI8k3DZfZTP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592502962377:android:cae62703d8c518f5fcf518",
+        "android_client_info": {
+          "package_name": "com.example.productsadder"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDM564xiYV2yMbl1F0gvwncI8k3DZfZTP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

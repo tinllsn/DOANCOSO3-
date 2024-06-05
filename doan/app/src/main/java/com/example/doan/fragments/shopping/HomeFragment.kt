@@ -39,12 +39,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             AccessoryFragment(),
             FurnitureFragment()
         )
-
+//     review the viewpager
         binding.viewpagerHome.isUserInputEnabled = false
 
         val viewPager2Adapter =
             HomeViewpagerAdapter(categoriesFragments, childFragmentManager, lifecycle)
         binding.viewpagerHome.adapter = viewPager2Adapter
+//        liên kết TabLayout và ViewPager2 với nhau.
         TabLayoutMediator(binding.tabLayout, binding.viewpagerHome) { tab, position ->
             when (position) {
                 0 -> tab.text = "Main"
