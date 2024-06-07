@@ -102,11 +102,13 @@
     <fragment
         android:id="@+id/userAccountFragment"
         android:name="com.example.doan.fragments.settings.UserAccountFragment"
-        android:label="UserAccountFragment" />
+        android:label="UserAccountFragment"
+        tools:layout="@layout/fragment_user_account"/>
     <fragment
         android:id="@+id/allOrdersFragment"
         android:name="com.example.doan.fragments.settings.AllOrdersFragment"
-        android:label="AllOrdersFragment" >
+        android:label="AllOrdersFragment"
+        tools:layout="@layout/fragment_orders">
         <action
             android:id="@+id/action_allOrdersFragment_to_orderDetailFragment"
             app:destination="@id/orderDetailFragment" />
@@ -114,7 +116,8 @@
     <fragment
         android:id="@+id/orderDetailFragment"
         android:name="com.example.doan.fragments.settings.OrderDetailFragment"
-        android:label="OrderDetailFragment" >
+        android:label="OrderDetailFragment"
+        tools:layout="@layout/fragment_order_detail">
         <argument
             android:name="order"
             app:argType="com.example.doan.data.order.Order" />

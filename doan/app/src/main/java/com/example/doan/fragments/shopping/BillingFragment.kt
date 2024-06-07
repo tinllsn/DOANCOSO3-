@@ -69,6 +69,10 @@ class BillingFragment : Fragment() {
         setupBillingProductsRv()
         setupAddressRv()
 
+        binding.imageCloseBilling.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
 
         if (!args.payment) {
             binding.apply {
