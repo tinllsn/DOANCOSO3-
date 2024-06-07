@@ -44,9 +44,9 @@ class OrderViewModel @Inject constructor(
 //            save order into order of user in realtime
             dbRef = FirebaseDatabase.getInstance().getReference("user").child(auth.uid!!)
             dbRef.child("order").setValue(order).addOnSuccessListener {
-                Log.wtf("04/06/2024","save")
+
             }.addOnFailureListener {
-                Log.wtf("04/06/2024","not save")
+
             }
 //            ===
 
@@ -55,9 +55,9 @@ class OrderViewModel @Inject constructor(
  //             save order into orders  in realtime
             FirebaseDatabase.getInstance().getReference("orders").setValue(order)
                 .addOnSuccessListener {
-                    Log.wtf("04/06/2024","save2")
+
                 }.addOnFailureListener {
-                    Log.wtf("04/06/2024","not save2")
+
                 }
 
             firestore.collection("user").document(auth.uid!!).collection("cart").get()

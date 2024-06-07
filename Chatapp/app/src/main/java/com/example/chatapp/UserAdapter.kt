@@ -45,11 +45,7 @@ class UserAdapter (var ds: List<Userget>, val context: Context) :RecyclerView.Ad
 
                         val user = postSnapshot.getValue(Userget::class.java)
 
-                        Log.wtf("test",currentUser?.email)
-
                         if(currentUser.email== user?.email)    {
-                            Log.wtf("bang",currentUser?.email)
-                            Log.wtf("bang",postSnapshot.key)
 
                              key = postSnapshot.key
                             Log.wtf("bang1",key)

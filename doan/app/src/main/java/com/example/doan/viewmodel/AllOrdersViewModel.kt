@@ -1,5 +1,6 @@
 package com.example.doan.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.doan.data.order.Order
@@ -30,9 +31,12 @@ class AllOrdersViewModel @Inject constructor(
             _allOrders.emit(Resource.Loading())
         }
 
+        val orderId: Long? = null
+//     get order from user collection
         firestore.collection("user").document(auth.uid!!).collection("orders").get()
             .addOnSuccessListener {
                 val orders = it.toObjects(Order::class.java)
+
                 viewModelScope.launch {
                     _allOrders.emit(Resource.Success(orders))
                 }
@@ -41,6 +45,7 @@ class AllOrdersViewModel @Inject constructor(
                     _allOrders.emit(Resource.Error(it.message.toString()))
                 }
             }
+
     }
 
 }

@@ -15,7 +15,8 @@ data class Product(
     val description: String? = null,
     val colors: List<Int>? = null,
     val sizes: List<String>? = null,
-    val images: List<String>
+    val images: List<String>,
+
 )
     : Parcelable
 {

@@ -38,11 +38,11 @@ class MainActivity : AppCompatActivity() {
 
         mDbRef.child("user").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+                Log.wtf("test",snapshot.toString())
                 usrList.clear()
                 for (postSnapshot in snapshot.children) {
 
                     val currentUser = postSnapshot.getValue(Userget::class.java)
-
 
 
                     if (mAuth.uid != postSnapshot.key) {

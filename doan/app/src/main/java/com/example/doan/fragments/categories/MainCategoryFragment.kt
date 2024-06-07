@@ -141,7 +141,9 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
         bestProductsAdapter = BestProductsAdapter()
         binding.rvBestProducts.apply {
             layoutManager =
-                GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
+                GridLayoutManager(requireContext(), 2, LinearLayoutManager.VERTICAL, false)
+//                LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+
             adapter = bestProductsAdapter
         }
     }
