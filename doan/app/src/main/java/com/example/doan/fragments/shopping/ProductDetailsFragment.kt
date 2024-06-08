@@ -107,6 +107,8 @@ class ProductDetailsFragment : Fragment() {
         viewPagerAdapter.differ.submitList(product.images)
         product.colors?.let { colorsAdapter.differ.submitList(it) }
 //        product.sizes?.let { sizesAdapter.differ.submitList(it) }
+
+
     }
 
     private fun setupViewpager() {

@@ -55,6 +55,11 @@ class UserAccountFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.imageCloseUserAccount.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
+
         lifecycleScope.launchWhenStarted {
             viewModel.user.collectLatest {
                 when (it) {

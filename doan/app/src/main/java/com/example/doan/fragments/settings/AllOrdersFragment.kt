@@ -41,6 +41,10 @@ class AllOrdersFragment : Fragment() {
 
         setupOrdersRv()
 
+        binding.imageCloseOrders.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
         lifecycleScope.launchWhenStarted {
             viewModel.allOrders.collectLatest {
                 when (it) {
