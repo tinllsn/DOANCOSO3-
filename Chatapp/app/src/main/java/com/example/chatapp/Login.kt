@@ -24,10 +24,10 @@ class Login : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 //         sign up
-        binding.btnSignup.setOnClickListener {
-            val intent = Intent(this, SignUp::class.java)
-            startActivity(intent)
-        }
+//        binding.btnSignup.setOnClickListener {
+//            val intent = Intent(this, SignUp::class.java)
+//            startActivity(intent)
+//        }
 
         binding.btnLogin.setOnClickListener {
             val email = binding.edtEmail.text.toString()
