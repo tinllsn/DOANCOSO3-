@@ -14,7 +14,7 @@
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
-        android:src="@drawable/img" />
+        android:src="@drawable/logo" />
 
     <EditText
         android:id="@+id/edt_Email"
@@ -57,8 +57,12 @@
 <!--        android:layout_height="wrap_content"-->
 <!--        android:layout_gravity="center"-->
 <!--        android:layout_marginTop="15dp"-->
+
+<!--        android:backgroundTint="@color/green"-->
+<!--        android:text="Sign up"-->
+
 <!--        android:backgroundTint="@color/white-->
-<!--"-->
+
 <!--        android:textColor="@color/white" />-->
 
 
