@@ -49,7 +49,7 @@ class BestDealsAdapter : RecyclerView.Adapter<BestDealsAdapter.BestDealsViewHold
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BestDealsViewHolder {
         return BestDealsViewHolder(
             BestDealsRvItemBinding.inflate(
-                LayoutInflater.from(parent.context)
+                LayoutInflater.from(parent.context),parent,false
             )
         )
     }
