@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.doan.R
 import com.example.doan.data.Address
 import com.example.doan.databinding.FragmentAddressBinding
 import com.example.doan.util.Resource
@@ -33,6 +34,11 @@ class AddressFragment : Fragment() {
 //        binding.imageAddressClose.setOnClickListener {
 //            findNavController().navigateUp()
 //        }
+
+//        binding.imageAddressClose.setOnClickListener {
+//            findNavController().navigate(R.id.action_addressFragment_to_billingFragment)
+//        }
+
 
         lifecycleScope.launchWhenStarted {
 //            This function collects the latest value emitted by the Flow.

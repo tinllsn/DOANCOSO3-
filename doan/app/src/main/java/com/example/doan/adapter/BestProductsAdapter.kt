@@ -13,8 +13,6 @@ import com.example.doan.data.Product
 import com.example.doan.databinding.ProductRvItemBinding
 import com.example.doan.helper.getProductPrice
 
-//import com.example.doan.helper.getProductPrice
-
 class BestProductsAdapter : RecyclerView.Adapter<BestProductsAdapter.BestProductsViewHolder>() {
 
     inner class BestProductsViewHolder(private val binding: ProductRvItemBinding) :
@@ -31,14 +29,12 @@ class BestProductsAdapter : RecyclerView.Adapter<BestProductsAdapter.BestProduct
                 tvPrice.text = "$ ${product.price}"
                 tvName.text = product.name
             }
-
-            }
+        }
     }
 
     private val diffCallback = object : DiffUtil.ItemCallback<Product>() {
         override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
             return oldItem.id == newItem.id
-
         }
 
         override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
@@ -51,7 +47,7 @@ class BestProductsAdapter : RecyclerView.Adapter<BestProductsAdapter.BestProduct
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BestProductsViewHolder {
         return BestProductsViewHolder(
             ProductRvItemBinding.inflate(
-                LayoutInflater.from(parent.context)
+                LayoutInflater.from(parent.context), parent, false
             )
         )
     }
@@ -70,5 +66,4 @@ class BestProductsAdapter : RecyclerView.Adapter<BestProductsAdapter.BestProduct
     }
 
     var onClick: ((Product) -> Unit)? = null
-
 }
