@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
+    kotlin("kapt")
 }
 
 android {
@@ -57,4 +58,11 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.0")
 //CircleImageView
     implementation ("de.hdodenhof:circleimageview:3.1.0")
+// glide : dùng xử lý ảnh
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
+}
+
+kapt {
+    correctErrorTypes = true
 }

@@ -32,6 +32,16 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this@MainActivity,HandleOrder::class.java)
                 startActivity(intent)
             }
+
+            deleteProduct.setOnClickListener {
+                val  intent = Intent(this@MainActivity,DeleteProduct::class.java)
+                startActivity(intent)
+            }
+
+            user.setOnClickListener {
+                val intent = Intent(this@MainActivity, MainActivity2::class.java)
+                startActivity(intent)
+            }
         }
     }
 
