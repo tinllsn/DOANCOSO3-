@@ -13,6 +13,7 @@ class ChatViewModel(
 ) : ViewModel() {
 
     private val _messageList = MutableLiveData<ArrayList<Mesage>>()
+//    messageList là một biến công cộng được khai báo là một LiveData chỉ đọc (val) được truy cập từ bên ngoài lớp ChatViewModel.
     val messageList: LiveData<ArrayList<Mesage>> get() = _messageList
 
     var receiverRoom: String? = null

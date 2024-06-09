@@ -19,6 +19,9 @@ class BestDealsAdapter : RecyclerView.Adapter<BestDealsAdapter.BestDealsViewHold
         fun bind(product: Product) {
 //             glide dùng để tải hình ảnh
             binding.apply {
+//                Glide.with(itemView) bắt đầu quá trình tải hình ảnh, và itemView là itemView của ViewHolder.
+//                .load(product.images[0]) chỉ định URL của hình ảnh để tải. product.images[0] là đường dẫn của hình ảnh đầu tiên trong danh sách hình ảnh của sản phẩm
+//                 .into(imgBestDeal) chỉ định ImageView (imgBestDeal) mà hình ảnh sẽ được hiển thị vào
                 Glide.with(itemView).load(product.images[0]).into(imgBestDeal)
                 product.offerPercentage?.let {
                     val remainingPricePercentage = 1f - it

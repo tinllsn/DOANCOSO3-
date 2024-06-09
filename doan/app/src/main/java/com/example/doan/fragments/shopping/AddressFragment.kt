@@ -30,9 +30,9 @@ class AddressFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding.imageAddressClose.setOnClickListener {
-            findNavController().navigateUp()
-        }
+//        binding.imageAddressClose.setOnClickListener {
+//            findNavController().navigateUp()
+//        }
 
         lifecycleScope.launchWhenStarted {
 //            This function collects the latest value emitted by the Flow.

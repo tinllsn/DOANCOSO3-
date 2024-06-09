@@ -43,6 +43,9 @@ class AddressViewModel @Inject constructor(
         val validateInputs = validateInputs(address)
 
         if (validateInputs) {
+//            Trong coroutine, _addNewAddress.emit(Resource.Loading()) được gọi để đẩy một trạng thái "loading" vào MutableStateFlow _addNewAddress. Điều này thông báo cho các thành phần UI đã đăng ký về
+            //            addNewAddress rằng một hoạt động đang được thực hiện và
+            //            họ có thể hiển thị một giao diện người dùng phản hồi tương ứng (ví dụ: hiển thị thanh tiến trình).
             viewModelScope.launch { _addNewAddress.emit(Resource.Loading()) }
             firestore.collection("user").document(auth.uid!!).collection("address").document()
                 .set(address).addOnSuccessListener {
