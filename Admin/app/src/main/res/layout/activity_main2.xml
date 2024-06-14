@@ -7,7 +7,7 @@
     app:cardCornerRadius="7dp"
     android:layout_margin="3dp"
     app:cardElevation="2dp"
-    tools:context=".DeleteProduct">
+    tools:context=".ViewProduct">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvUser"

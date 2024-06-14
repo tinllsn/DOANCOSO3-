@@ -51,6 +51,7 @@ class AddProduct : AppCompatActivity() {
                     if (intent?.clipData != null) {
                         val count = intent.clipData?.itemCount ?: 0
                         (0 until count).forEach {
+//                            Lấy URI của từng hình ảnh được
                             val imagesUri = intent.clipData?.getItemAt(it)?.uri
                             imagesUri?.let { selectedImages.add(it) }
                         }
@@ -81,6 +82,7 @@ class AddProduct : AppCompatActivity() {
              */
         binding.buttonImagesPicker.setOnClickListener {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
+//            Thêm một thông tin phụ vào Intent để cho phép người dùng chọn nhiều hình ảnh cùng một lúc (EXTRA_ALLOW_MULTIPLE với giá trị true).
             intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
             intent.type = "image/*"
             selectImagesActivityResult.launch(intent)

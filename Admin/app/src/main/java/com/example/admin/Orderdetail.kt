@@ -45,30 +45,7 @@ class Orderdetail : AppCompatActivity() {
             }
 
 
-//            mDbRef.collection("orders").get()
-//                .addOnSuccessListener { querySnapshot ->
-//                    for (document in querySnapshot.documents) {
-//                        val order = document.toObject(Order::class.java)
-//                        if (order != null) {
-//                            Log.wtf("wtf", order.toString())
-//                            if (order.orderId == corderId.toLong()) {
-//                                Log.wtf("orderchay", corderId)
-//
-//                                binding.apply {
-//                                textView2.text = order.orderId.toString()
-//                                textView3.text = order.orderStatus
-//                                textView4.text = order.date
-//                                textView5.text = order.totalPrice.toString()
-//                            }
-//
-//                            }
-//                        }
-//                    }
-//                }
-//                .addOnFailureListener { exception ->
-//                    // Xử lý lỗi nếu có
-//                    Log.e("TAG", "Error getting documents: ", exception)
-//                }
+
 
             binding.apply {
                 btnConfirmed.setOnClickListener {

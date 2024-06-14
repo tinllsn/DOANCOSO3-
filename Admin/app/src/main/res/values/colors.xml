@@ -7,7 +7,7 @@
     <color name="teal_700">#a7d7b1</color>
     <color name="purple_700">#479e59</color>
     <color name="teal_200">#479e59</color>
-    <color name="green">#008000</color>
+    <color name="green">#4CAF50</color>
 
     <color name="textColor">#121212</color>
     <color name="yellow">#ffb300</color>
@@ -15,5 +15,7 @@
     <color name="t_red">#F73E7C</color>
     <color name="lightgray">#c1c1c1</color>
     <color name="g_gray700">#686767</color>
+    <color name="delete">#CE0606</color>
+
 
 </resources>

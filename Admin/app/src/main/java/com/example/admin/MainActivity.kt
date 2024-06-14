@@ -4,12 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
-import com.example.admin.databinding.ActivityLoginBinding
 import com.example.admin.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.firestore.FirebaseFirestore
 
 @SuppressLint("StaticFieldLeak")
 private lateinit var binding: ActivityMainBinding
@@ -33,8 +31,8 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
 
-            deleteProduct.setOnClickListener {
-                val  intent = Intent(this@MainActivity,DeleteProduct::class.java)
+            viewProduct.setOnClickListener {
+                val  intent = Intent(this@MainActivity,ViewProduct::class.java)
                 startActivity(intent)
             }
 
@@ -42,13 +40,24 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this@MainActivity, MainActivity2::class.java)
                 startActivity(intent)
             }
+
+            delete.setOnClickListener {
+                val intent = Intent(this@MainActivity,deleteProduct::class.java)
+                startActivity(intent)
+            }
+
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu,menu)
+        return true
+    }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        mAuth = FirebaseAuth.getInstance()
         if (item.itemId == R.id.logout) {
             mAuth.signOut()
-            var intent = Intent(this, Login::class.java)
+            val intent = Intent(this, Login::class.java)
             startActivity(intent)
             finish()
             return true
