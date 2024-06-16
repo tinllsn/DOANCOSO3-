@@ -28,6 +28,7 @@ class AddressViewModel @Inject constructor(
 
     ) : ViewModel() {
     //     hold and manage the state of adding a new address, allowing you to emit state updates
+//        MutableStateFlow là một công cụ mạnh mẽ trong Kotlin Coroutines Flow, giúp quản lý và thông báo về các thay đổi của trạng thái dữ liệu một cách hiệu quả trong ứng dụng Kotlin
     private val _addNewAddress = MutableStateFlow<Resource<Address>>(Resource.Unspecified())
     private val _deleteAddress = MutableStateFlow<Resource<Address>>(Resource.Unspecified())
     private lateinit var dbRef: DatabaseReference
@@ -37,6 +38,7 @@ class AddressViewModel @Inject constructor(
 
 
     //    This is an extension function provided by Kotlin's coroutines library. It converts a MutableStateFlow into a read-only StateFlow.
+//    SharedFlow không giữ trạng thái mà chỉ phát ra các sự kiện
     val error = _error.asSharedFlow()
 
     fun addAddress(address: Address) {
@@ -52,6 +54,7 @@ class AddressViewModel @Inject constructor(
 //                     emit dung tao ra gia tri moi
                     viewModelScope.launch { _addNewAddress.emit(Resource.Success(address)) }
                 }.addOnFailureListener {
+//                    viewModelScope được thiết kế để khởi chạy các coroutine mà vòng đời của chúng được ràng buộc với vòng đời của ViewModel.
                     viewModelScope.launch { _addNewAddress.emit(Resource.Error(it.message.toString())) }
                 }
             dbRef = FirebaseDatabase.getInstance().getReference("user").child(auth.uid!!)

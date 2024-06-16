@@ -1,6 +1,7 @@
 package com.example.doan.fragments.settings
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,7 @@ import com.example.doan.adapter.AllOrdersAdapter
 import com.example.doan.databinding.FragmentOrdersBinding
 import com.example.doan.util.Resource
 import com.example.doan.util.hideBottomNavigationView
+import com.example.doan.util.showBottomNavigationView
 import com.example.doan.viewmodel.AllOrdersViewModel
 //import com.example.doan.viewmodel.AllOrdersViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -68,10 +70,11 @@ class AllOrdersFragment : Fragment() {
                 }
             }
         }
-
+//         hàm onclick đc định nghĩa ở đây
         ordersAdapter.onClick = {
             val action = AllOrdersFragmentDirections.actionAllOrdersFragmentToOrderDetailFragment(it)
             findNavController().navigate(action)
+
         }
 
     }
@@ -80,6 +83,7 @@ class AllOrdersFragment : Fragment() {
         binding.rvAllOrders.apply {
             adapter = ordersAdapter
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+            showBottomNavigationView()
         }
     }
 }

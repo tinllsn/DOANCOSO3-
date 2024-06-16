@@ -46,6 +46,7 @@ class OrderDetailFragment : Fragment(
         super.onViewCreated(view, savedInstanceState)
 
         val order = args.order
+//         ẩn thanh điều hướng
         hideBottomNavigationView()
         auth = FirebaseAuth.getInstance()
         setupOrderRv()
@@ -101,7 +102,7 @@ class OrderDetailFragment : Fragment(
                                                     OrderStatus.Delivered.status,
                                                 )
                                             )
-
+//Hàm let là một hàm mở rộng trong Kotlin, được sử dụng để thực thi một khối mã (lambda) trên một đối tượng đã được kiểm tra khác null.
                                             val currentOrderState = when (originorderstatus?.let { getOrderStatus(it) }) {
 
                                                 is OrderStatus.Ordered -> 0

@@ -21,6 +21,7 @@ class LoginViewModel @Inject constructor(
     private val firebaseAuth: FirebaseAuth
 ) : ViewModel() {
     private val _login = MutableSharedFlow<Resource<FirebaseUser>>()
+//     a SharedFlow, a hot flow that emits values to all consumers that collect from it
     val login = _login.asSharedFlow()
 
     private val _resetPassword = MutableSharedFlow<Resource<String>>()

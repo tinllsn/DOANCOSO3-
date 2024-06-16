@@ -35,9 +35,19 @@ class UserAccountFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        imageActivityResultLauncher is initialized to handle the result from an activity that allows the user to pick an image.
+//        The result is processed using a lambda function that extracts the URI of the selected image and loads it into the ImageView using Glide.
 
+//Cụ thể, imageActivityResultLauncher sẽ là một launcher mà bạn có thể sử dụng để khởi động một Intent và xử lý kết quả trả về từ hoạt động đó. Trong trường hợp này, khi bạn khởi động hoạt động để chọn một hình ảnh từ thư viện
+// , kết quả trả về sẽ được xử lý trong khối lambda bạn đã cung cấp.
         imageActivityResultLauncher =
+//            ActivityResultContracts.StartActivityForResult() là một hợp đồng (contract) cho biết chúng ta sẽ khởi động một hoạt động với
+//            Intent và mong đợi một kết quả trả về.
+//            Đăng ký một launcher cho kết quả từ hoạt động StartActivityForResult.
+//            ActivityResultContracts.StartActivityForResult() là một hợp đồng (contract) cho biết chúng ta sẽ khởi động một hoạt động với Intent và mong đợi một kết quả trả về.
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+//                it là đối tượng ActivityResult. it.data là Intent chứa dữ liệu trả về từ hoạt động.
+//                it.data?.data là URI của hình ảnh được chọn từ thư viện. Sử dụng toán tử ?. để kiểm tra null (an toàn null).
                 imageUri = it.data?.data
                 Glide.with(this).load(imageUri).into(binding.imageUser)
             }
@@ -115,6 +125,7 @@ class UserAccountFragment : Fragment() {
 
         binding.imageEdit.setOnClickListener {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
+//            "image/*": Điều này chỉ định rằng Intent chỉ nên xử lý các tệp có loại MIME là hình ảnh. Dấu * đại diện cho tất cả các định dạng hình ảnh (ví dụ: JPEG, PNG, GIF, ...).
             intent.type = "image/*"
             imageActivityResultLauncher.launch(intent)
         }

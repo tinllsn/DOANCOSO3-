@@ -15,6 +15,8 @@ class CategoryViewModel constructor(
     private val category: Category
 ) : ViewModel() {
 
+//    _offerProducts và _bestProducts là hai biến MutableStateFlow dùng để lưu trữ và phản ánh trạng thái của
+    //    danh sách sản phẩm được cung cấp.
     private val _offerProducts = MutableStateFlow<Resource<List<Product>>>(Resource.Unspecified())
     val offerProducts = _offerProducts.asStateFlow()
 
@@ -25,7 +27,8 @@ class CategoryViewModel constructor(
         fetchOfferProducts()
         fetchBestProducts()
     }
-
+//đều được gọi từ viewModelScope để đảm bảo rằng chúng chạy
+// trong phạm vi của ViewModel và được quản lý bởi Kotlin Coroutine.
     fun fetchOfferProducts() {
         viewModelScope.launch {
             _offerProducts.emit(Resource.Loading())

@@ -3,6 +3,7 @@ package com.example.doan.adapter
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView.Adapter
@@ -87,5 +88,5 @@ class AllOrdersAdapter : Adapter<AllOrdersAdapter.OrdersViewHolder>() {
         return differ.currentList.size
     }
 
-    var onClick: ((Order) -> Unit)? = null
+    var onClick: ((Order) -> Unit )? = null
 }

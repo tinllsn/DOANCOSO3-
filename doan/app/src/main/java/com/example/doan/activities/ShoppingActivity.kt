@@ -35,12 +35,17 @@ class ShoppingActivity : AppCompatActivity() {
 //     coroutine
 
         lifecycleScope.launchWhenStarted {
-//            collectLatest dung de
+//         viewModel.cartProducts là một Flow trong ViewModel. Flow là một thành phần của thư viện Kotlin
+  //         Coroutines, được sử dụng để xử lý các luồng dữ liệu không đồng bộ.
+//            collectLatest là một hàm của Flow, nó thu thập các giá trị mới nhất từ Flow
+
             viewModel.cartProducts.collectLatest {
                 when (it) {
                     is Resource.Success -> {
                         val count = it.data?.size ?: 0
                         val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+//                        bottomNavigation.getOrCreateBadge(R.id.cartFragment).apply { ... }
+//                        tạo hoặc lấy một badge (huy hiệu) cho cartFragment và áp dụng các thuộc tính cho nó:
                         bottomNavigation.getOrCreateBadge(R.id.cartFragment).apply {
                             number = count
                             backgroundColor = resources.getColor(R.color.g_blue)

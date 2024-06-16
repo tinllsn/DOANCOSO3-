@@ -59,6 +59,7 @@ class MessageAdapter(val context: Context, val messageList: ArrayList<Mesage>) :
     }
 
 //     xác định tin nhắn gửi và tin nhắn nhận
+//     trả về một viewtype kiểu int
     override fun getItemViewType(position: Int): Int {
         val currentMessage = messageList[position]
 

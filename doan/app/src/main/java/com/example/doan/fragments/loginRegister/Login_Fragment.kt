@@ -41,7 +41,7 @@ class Login_Fragment : Fragment(R.layout.fragment_login) {
         binding.tvDontHaveAccount.setOnClickListener {
             findNavController().navigate(R.id.action_login_Fragment_to_registerFragement)
         }
-// app giúp việc thực hiện nhiều hoạt động trên một đối tượng
+// apply giúp việc thực hiện nhiều hoạt động trên một đối tượng
 //Cú pháp apply cho phép bạn gọi một chuỗi phương thức trên một đối tượng mà không cần lặp lại tên đối tượng nhiều lần.
         binding.apply {
             buttonLoginLogin.setOnClickListener {

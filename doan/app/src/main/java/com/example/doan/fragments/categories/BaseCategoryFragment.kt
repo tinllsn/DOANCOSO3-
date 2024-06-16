@@ -39,6 +39,7 @@ open class BaseCategoryFragment: Fragment(R.layout.fragment_base_category) {
 
         bestProductsAdapter.onClick = {
 //             onClick cho cả hai adapter để điều hướng đến chi tiết sản phẩm khi nhấp vào một mục sản phẩm
+//             tạo một đối tượng Bundle và thêm một đối tượng Parcelable vào trong đó
             val b = Bundle().apply { putParcelable("product",it) }
             findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment,b)
         }

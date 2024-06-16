@@ -41,7 +41,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         )
 //     review the viewpager
         binding.viewpagerHome.isUserInputEnabled = false
-
+//Swipe views let you navigate between sibling screens, such as tabs, with a horizontal finger gesture, or swipe
         val viewPager2Adapter =
             HomeViewpagerAdapter(categoriesFragments, childFragmentManager, lifecycle)
         binding.viewpagerHome.adapter = viewPager2Adapter

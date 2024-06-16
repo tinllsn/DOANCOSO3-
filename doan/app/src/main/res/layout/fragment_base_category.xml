@@ -17,8 +17,9 @@
             android:layout_height="wrap_content"
             android:indeterminateTint="@color/g_blue_gray200"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/rvOfferProducts"
-            app:layout_constraintBottom_toBottomOf="@id/rvOfferProducts"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             android:visibility="gone"
             />
 
@@ -32,7 +33,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="10dp"
-            app:layout_constraintEnd_toStartOf="@id/offerProductsProgressBar"
+
             android:layout_marginStart="15dp"/>
 
 

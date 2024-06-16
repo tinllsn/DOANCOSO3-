@@ -42,7 +42,9 @@ class IntroductionFragment : Fragment(R.layout.fragment_introduction) {
                     SHOPPING_ACTIVITY -> {
 
                         Intent(requireActivity(), ShoppingActivity::class.java).also { intent ->
-
+//Intent.FLAG_ACTIVITY_CLEAR_TASK: Khi sử dụng cờ này, bất kỳ Activity nào hiện tại trên ngăn xếp sẽ bị xóa bỏ, và Activity mới sẽ trở thành Activity gốc (root activity).
+//Intent.FLAG_ACTIVITY_CLEAR_TOP: Nếu Activity được chỉ định trong Intent đã tồn tại trong ngăn xếp,
+     // tất cả các Activity phía trên nó sẽ bị xóa bỏ và Activity này sẽ được đưa lên đầu ngăn xếp. Tuy nhiên, nếu Activity đó đã tồn tại, onNewIntent() sẽ được gọi thay vì onCreate().
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
                             startActivity(intent)
                         }

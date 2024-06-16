@@ -33,9 +33,12 @@ class RegisterViewModel @Inject constructor(
     private var dbRef: DatabaseReference
 ) :
     ViewModel() {
+
     private val _register = MutableStateFlow<Resource<User>>(Resource.Unspecified())
     val register: Flow<Resource<User>> = _register
-
+//là một Channel để lưu trữ trạng thái kiểm tra các trường nhập liệu khi đăng ký.
+//    Channel trong Kotlin là một khái niệm tương tự như một hàng đợi (queue) dùng để truyền tải các giá trị giữa các coroutine.
+//    Nó là một cách an toàn và hiệu quả để giao tiếp giữa các coroutine.
     private val _validation = Channel<RegisterFieldsState>()
 
     val validation = _validation.receiveAsFlow()
@@ -43,6 +46,7 @@ class RegisterViewModel @Inject constructor(
     fun createAccountWithEmailAndPassword(user: User, passwor: String) {
 
         if (checkValidation(user, passwor)) {
+//            runBlocking được sử dụng ở đây để chờ coroutine hoàn thành trước khi tiếp tục.( hỗ trợ chạy đồng bộ cho coroutine)
             runBlocking {
                 _register.emit(Resource.Loading())
             }
@@ -62,6 +66,7 @@ class RegisterViewModel @Inject constructor(
         } else {
 
             val registerFilesState = RegisterFieldsState(
+//                 check
                 validateEmail(user.email), validatePassword(passwor)
 
             )
