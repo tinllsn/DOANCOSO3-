@@ -52,8 +52,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 1 -> tab.text = "Meats"
                 2 -> tab.text = "Milks"
                 3 -> tab.text = "Vegetables"
-                4 -> tab.text = "Cakes"
-                5 -> tab.text = "Wines"
+                4 -> tab.text = "Fruits"
+                5 -> tab.text = "Tea"
             }
         }.attach()
     }
